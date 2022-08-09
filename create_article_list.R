@@ -1,13 +1,8 @@
-# USE THIS SITE AS TUTORIAL:
-# https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/
-
-
 # Setup
 # install.packages("rvest")
 library(rvest)
 library(tidyverse)
 library(stringr)
-library(flextable)
 library(magrittr)
 library(polite)
 
@@ -67,17 +62,15 @@ for (i in 2:715){
     }
   }
 
-all_articles <- c(page1, my_list)
+all_articles <- c(page1, my_list) %>%
+  dplyr::mutate(Sent = "") %>%
+  dplyr::rename(ID = 1,
+                Article = 2)
 
-# save list of article links as csv
+# save list of article links as csv (to save, untouched)
 write.csv(all_articles,
           file = "all_articles.csv")
 
-
-# create a new script that opens up that csv
-# 
-# within that script, create function that selects 5 unique
-# articles from it
-# 
-# create task w/windows scheduler to open that script and email 
-# me those articles every week!
+# save list of article links as csv- DUPLICATE to work with later
+write.csv(all_articles,
+          file = "all_articles_updated.csv")
