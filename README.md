@@ -1,4 +1,4 @@
-# Creating a weekly link roundup from a defunct blog with web scraping
+# Creating an automatic weekly link roundup from a defunct blog with web scraping
 
 I found a fun blog that was active in the 2010s (and sadly is no more) called [The Hairpin](https://www.thehairpin.com/).
 
